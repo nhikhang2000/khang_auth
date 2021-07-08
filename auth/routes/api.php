@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\auth\api\CompaniesController;
+use Facade\FlareClient\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('companies',[CompaniesController::class,'index']);
+Route::post('companies',[CompaniesController::class,'store']);
+Route::put('companies/{id}',[CompaniesController::class,'update']);
