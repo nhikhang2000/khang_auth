@@ -26,13 +26,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         // if (! $this->app->routesAreCached()) {
-            Passport::routes();
-             Passport::loadKeysFrom(__DIR__.'/../secrets/oauth');
+           // Passport::routes();
+          //  Passport::loadKeysFrom(__DIR__.'/../secrets/oauth');
 
-             Passport::hashClientSecrets();
-             Passport::tokensExpireIn(now()->addDays(15));
-             Passport::refreshTokensExpireIn(now()->addDays(30));
-             Passport::personalAccessTokensExpireIn(now()->addMonths(6));
+            // Passport::hashClientSecrets();
+            // Passport::tokensExpireIn(now()->addDays(15));
+            // Passport::refreshTokensExpireIn(now()->addDays(30));
+            // Passport::personalAccessTokensExpireIn(now()->addMonths(6));
         // }
         //
     }

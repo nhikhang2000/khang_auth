@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\auth\api\CompaniesController;
-use Facade\FlareClient\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\api\AuthController;
@@ -26,5 +25,10 @@ Route::post('companies',[CompaniesController::class,'store']);
 Route::put('companies/{id}',[CompaniesController::class,'update']);
 
 Route::post('auth/register',[AuthController::class, 'register']);
+
+Route::prefix('/user')->group(function(){
+    Route::post('/login',[AuthController::class,'login']);
+});
+
 
 
