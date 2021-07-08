@@ -4,6 +4,7 @@ use App\Http\Controllers\auth\api\CompaniesController;
 use Facade\FlareClient\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\auth\api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('companies',[CompaniesController::class,'index']);
 Route::post('companies',[CompaniesController::class,'store']);
 Route::put('companies/{id}',[CompaniesController::class,'update']);
+
+Route::post('auth/register',[AuthController::class, 'register']);
+
+
