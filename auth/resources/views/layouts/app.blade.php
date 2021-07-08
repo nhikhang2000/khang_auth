@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ asset('public/css/app.css') }}">
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('public/js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -26,11 +26,13 @@
                     {{ $header }}
                 </div>
             </header>
-
+            {{-- @yield('content') --}}
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
+
         </div>
+
     </body>
 </html>
