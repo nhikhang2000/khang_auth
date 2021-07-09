@@ -10,12 +10,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
-    //ham dang ky
-    public function register (UserRegister $req){
 
-        $validated = $req ->validated();
-        dd($req);
-    }
+
+
+    //ham đăng  nhập
     public function login(Request $res){
         $allValue = Validator::make($res->all(),[
             'email' => 'required|email',
@@ -40,6 +38,5 @@ class AuthController extends Controller
                 //$token = $user->createToken('Token Name')->accessToken;
             }
     }
-    //ham dang nhap
-    //
+
 }
