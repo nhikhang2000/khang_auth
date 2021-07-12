@@ -42,3 +42,5 @@ Route::prefix('/user1')->group(function(){
 Route::middleware('auth:api')->get('/user1', function (Request $request) {
     return $request->user();
 });
+
+//dùng token
