@@ -24,9 +24,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('companies',[CompaniesController::class,'index']);
-Route::post('companies',[CompaniesController::class,'store']);
-Route::put('companies/{id}',[CompaniesController::class,'update']);
+Route::get('companies',[CompaniesController::class,'index']);//hiện thị ds
+Route::post('companies',[CompaniesController::class,'store']);//thêm
+Route::put('companies/{id}',[CompaniesController::class,'update']);//cập nhật
 
 // Route::post('auth/register',[AuthController::class, 'register']);
 
@@ -34,6 +34,7 @@ Route::prefix('/user')->group(function(){
     Route::post('/login',[AuthController::class,'login']);
 });
 
+//tạo user1 để test xác thực
 Route::prefix('/user1')->group(function(){
     Route::post('/login',[AuthController::class,'login']);
 });
@@ -43,4 +44,12 @@ Route::middleware('auth:api')->get('/user1', function (Request $request) {
     return $request->user();
 });
 
-//dùng token
+//dựa vào token để xác thực api
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('companies', [CompaniesController::class,'index']);
+    // Route::get('companies/{id}', [CompaniesController::class,'show']);
+    Route::post('companies', [CompaniesController::class,'store']);
+    Route::put('companies/{id}', [CompaniesController::class,'update']);
+    Route::delete('companies/{id}', [CompaniesController::class,'destroy']);
+});
+

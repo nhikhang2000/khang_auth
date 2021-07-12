@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\auth\api;
 
+use App\Http\Controllers\auth\CompaniesController as AuthCompaniesController;
 use App\Http\Controllers\Controller;
 use App\Models\CompaniesModel;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class CompaniesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request)//insert
     {
         return CompaniesModel::create($request->all());
     }
@@ -66,8 +67,13 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $res, $id)
     {
         //
+        $companiesModel = CompaniesModel::find($id);
+        $companiesModel->delete($res->all());
+        return $companiesModel;
     }
+
+
 }
