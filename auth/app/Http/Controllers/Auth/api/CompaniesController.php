@@ -67,11 +67,11 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $res, $id)
+    public function destroy($id)
     {
         //
         $companiesModel = CompaniesModel::find($id);
-        $companiesModel->delete($res->all());
+        $companiesModel->delete();
         return $companiesModel;
     }
 
